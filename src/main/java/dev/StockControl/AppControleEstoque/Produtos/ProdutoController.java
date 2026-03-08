@@ -28,6 +28,11 @@ public class ProdutoController {
         return produtoService.verProdutoPorID(id);
     }
 
+    @PutMapping("/alterar/{id}")
+    public ProdutoModel produtoModel (@PathVariable Long id, @RequestBody ProdutoModel produtoAlterar) {
+        return produtoService.alterarProduto(id,produtoAlterar);
+    }
+
     @DeleteMapping("/deletar/{id}")
     public void deletarProduto (@PathVariable Long id) {
         produtoService.deletarProduto(id);
