@@ -28,12 +28,12 @@ public class ProdutoService {
     //ver produtos por ID - R
     public ProdutoModel verProdutoPorID (Long id) {
         Optional<ProdutoModel> produtoModel = produtoRepository.findById(id);
-        return produtoModel.orElse(null);
+        return produtoModel.orElseThrow(() -> new RuntimeException("Este ID de produto não existe"));
     }
 
     //alterar produtos
     public ProdutoModel alterarProduto(Long id,ProdutoModel produtoNovo) {
-       ProdutoModel produtoPraMudar = produtoRepository.findById(id).orElse(null);
+       ProdutoModel produtoPraMudar = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Este ID de produto não existe"));
 
        produtoPraMudar.setNome(produtoNovo.getNome());
        produtoPraMudar.setValor(produtoNovo.getValor());
@@ -44,7 +44,7 @@ public class ProdutoService {
 
     //deletar produtos
     public void deletarProduto (Long id) {
-        ProdutoModel produtoDeletar = produtoRepository.findById(id).orElse(null);
+        ProdutoModel produtoDeletar = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("ID não encontrado,impossivel deletar."));
 
         produtoRepository.deleteById(id);
     }
