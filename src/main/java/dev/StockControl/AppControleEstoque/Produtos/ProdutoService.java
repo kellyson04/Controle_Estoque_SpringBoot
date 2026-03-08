@@ -32,9 +32,16 @@ public class ProdutoService {
     }
 
     //alterar produtos
+    public ProdutoModel alterarProduto(Long id,ProdutoModel produtoNovo) {
+       ProdutoModel produtoPraMudar = produtoRepository.findById(id).orElse(null);
+
+
+    }
 
     //deletar produtos
     public void deletarProduto (Long id) {
+        ProdutoModel produtoDeletar = produtoRepository.findById(id).orElse(null);
+
         produtoRepository.deleteById(id);
     }
 
