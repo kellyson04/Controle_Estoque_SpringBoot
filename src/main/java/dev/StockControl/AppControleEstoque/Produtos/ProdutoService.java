@@ -35,7 +35,11 @@ public class ProdutoService {
     public ProdutoModel alterarProduto(Long id,ProdutoModel produtoNovo) {
        ProdutoModel produtoPraMudar = produtoRepository.findById(id).orElse(null);
 
+       produtoPraMudar.setNome(produtoNovo.getNome());
+       produtoPraMudar.setValor(produtoNovo.getValor());
+       produtoPraMudar.setQuantidade(produtoNovo.getQuantidade());
 
+       return produtoRepository.save(produtoPraMudar);
     }
 
     //deletar produtos
