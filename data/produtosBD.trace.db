@@ -1,0 +1,4 @@
+2026-03-08 01:58:57.623325-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO TB_PESSOAS(id,cpf,endereço,nome)\000d\000aVALUES(1,548489498,Rua [*]da 112,Kellyson Lopes)"; expected "(, ., [, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO TB_PESSOAS(id,cpf,endereço,nome)
+VALUES(1,548489498,Rua da 112,Kellyson Lopes) [42001-240]

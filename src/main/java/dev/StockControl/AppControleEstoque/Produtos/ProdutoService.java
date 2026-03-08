@@ -1,0 +1,41 @@
+package dev.StockControl.AppControleEstoque.Produtos;
+
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class ProdutoService {
+
+    private ProdutoRepository produtoRepository;
+
+    public ProdutoService(ProdutoRepository produtoRepository) {
+        this.produtoRepository = produtoRepository;
+    }
+
+    //adicionar um produto - C
+    public ProdutoModel novoProduto (ProdutoModel produtoModel) {
+        produtoRepository.save(produtoModel);
+        return produtoModel;
+    }
+
+    //ver produtos - R
+    public List<ProdutoModel> verProdutos () {
+        return produtoRepository.findAll();
+    }
+
+    //ver produtos por ID - R
+    public ProdutoModel verProdutoPorID (Long id) {
+        Optional<ProdutoModel> produtoModel = produtoRepository.findById(id);
+        return produtoModel.orElse(null);
+    }
+
+    //alterar produtos
+
+    //deletar produtos
+    public void deletarProduto (Long id) {
+        produtoRepository.deleteById(id);
+    }
+
+}
