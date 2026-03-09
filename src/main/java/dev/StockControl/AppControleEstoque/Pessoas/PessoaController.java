@@ -15,25 +15,25 @@ public class PessoaController {
 
     // C
     @PostMapping("/criar")
-    public PessoaModel criarPessoas (@RequestBody PessoaModel pessoaModel) {
-        return pessoaService.criarPessoa(pessoaModel);
+    public PessoaDTO criarPessoas (@RequestBody PessoaDTO novaPessoa) {
+        return pessoaService.criarPessoa(novaPessoa);
     }
 
     //R
     @GetMapping("/listar")
-    public List<PessoaModel> listaPessoas () {
+    public List<PessoaDTO> listaPessoas () {
         return pessoaService.listaDePessoas();
     }
 
     //R
     @GetMapping("/listar/{id}")
-    public PessoaModel pessoaPorId (@PathVariable Long id) {
+    public PessoaDTO pessoaPorId (@PathVariable Long id) {
         return pessoaService.listarPessoaPorID(id);
     }
 
     //U
     @PutMapping("/atualizar/{id}")
-    public PessoaModel atualizarPessoas (@PathVariable Long id, @RequestBody PessoaModel alterarPessoa) {
+    public PessoaDTO atualizarPessoas (@PathVariable Long id, @RequestBody PessoaDTO alterarPessoa) {
         return pessoaService.alterarPessoa(id,alterarPessoa);
     }
 
