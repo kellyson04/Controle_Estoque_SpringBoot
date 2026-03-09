@@ -29,6 +29,9 @@ public class PessoaModel {
     @Column(name = "endereço")
     private String endereco;
 
+    @Column(name = "email")
+    private String email;
+
     @OneToMany(mappedBy = "pessoaModel")
     @JsonIgnore
     private List<ProdutoModel> produtoModel;
