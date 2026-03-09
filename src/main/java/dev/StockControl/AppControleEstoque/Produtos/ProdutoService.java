@@ -46,7 +46,7 @@ public class ProdutoService {
     public void deletarProduto (Long id) {
         ProdutoModel produtoDeletar = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("ID não encontrado,impossivel deletar."));
 
-        produtoRepository.deleteById(id);
+        produtoRepository.delete(produtoDeletar);
     }
 
 }
