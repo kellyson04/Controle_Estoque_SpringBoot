@@ -11,30 +11,46 @@ import java.util.Optional;
 public class PessoaService {
 
     private PessoaRepository pessoaRepository;
+    private PessoaMapper pessoaMapper;
 
-    public PessoaService(PessoaRepository pessoaRepository) {
+    public PessoaService(PessoaMapper pessoaMapper, PessoaRepository pessoaRepository) {
+        this.pessoaMapper = pessoaMapper;
         this.pessoaRepository = pessoaRepository;
     }
 
-    public PessoaModel criarPessoa (PessoaModel pessoaModel) {
-        return pessoaRepository.save(pessoaModel);
+    public PessoaDTO criarPessoa (PessoaDTO novaPessoa) {
+        PessoaModel pessoaModel = pessoaMapper.mapToModel(novaPessoa);
+        pessoaRepository.save(pessoaModel);
+
+        return novaPessoa;
     }
 
-    public List<PessoaModel> listaDePessoas () {
-        return pessoaRepository.findAll();
+    public List<PessoaDTO> listaDePessoas () {
+        List<PessoaModel> pessoaModels = pessoaRepository.findAll();
+
+        List<PessoaDTO> pessoaDTOS = new ArrayList<>();
+
+        for (PessoaModel cadaPessoa: pessoaModels) {
+            pessoaDTOS.add(pessoaMapper.mapToDto(cadaPessoa));
+        }
+
+        return pessoaDTOS;
     }
 
-    public PessoaModel listarPessoaPorID(Long id) {
-        return pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada para realizar listagem!"));
+    public PessoaDTO listarPessoaPorID(Long id) {
+        PessoaModel pessoaModel = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada para realizar listagem!"));
+        return pessoaMapper.mapToDto(pessoaModel);
     }
 
-    public PessoaModel alterarPessoa(Long id,PessoaModel novaPessoa) {
+    public PessoaDTO alterarPessoa(Long id,PessoaDTO novaPessoa) {
         PessoaModel pessoaPraMudar = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada para alteração!."));
 
         pessoaPraMudar.setNome(novaPessoa.getNome());
         pessoaPraMudar.setEndereco(novaPessoa.getEndereco());
+        pessoaPraMudar.setEmail(novaPessoa.getEmail());
 
-        return pessoaRepository.save(pessoaPraMudar);
+        pessoaRepository.save(pessoaPraMudar);
+        return pessoaMapper.mapToDto(pessoaPraMudar);
     }
 
     public void deletarPessoa (Long id) {
