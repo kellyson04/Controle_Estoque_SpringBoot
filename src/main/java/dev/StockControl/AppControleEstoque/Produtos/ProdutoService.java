@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProdutoService {
+public class    ProdutoService {
 
     private ProdutoRepository produtoRepository;
     private ProdutoMapper produtoMapper;
@@ -40,14 +40,12 @@ public class ProdutoService {
 
     //ver produtos por ID - R
     public ProdutoDTO verProdutoPorID (Long id) {
-       // Optional<ProdutoModel> produtoModel = produtoRepository.findById(id);
-       // return produtoModel.orElseThrow(() -> new RuntimeException("Este ID de produto não existe"));
-
         Optional<ProdutoModel> produtoModel = produtoRepository.findById(id);
+
         return produtoMapper.mapToDto(produtoModel.orElseThrow(() -> new RuntimeException("Este ID do produto não existe")));
     }
 
-    //alterar produtos
+    //alterar produtos U
     public ProdutoDTO alterarProduto(Long id,ProdutoDTO produtoNovo) {
        ProdutoModel produtoPraMudar = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Este ID de produto não existe"));
 
@@ -60,11 +58,9 @@ public class ProdutoService {
        return produtoMapper.mapToDto(produtoPraMudar);
     }
 
-    //deletar produtos
+    //deletar produtos D
     public void deletarProduto (Long id) {
         ProdutoModel produtoDeletar = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("ID não encontrado,impossivel deletar."));
-
-
         produtoRepository.delete(produtoDeletar);
     }
 
