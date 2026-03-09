@@ -25,11 +25,11 @@ public class PessoaService {
     }
 
     public PessoaModel listarPessoaPorID(Long id) {
-        return pessoaRepository.findById(id).orElse(null);
+        return pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada para realizar listagem!"));
     }
 
     public PessoaModel alterarPessoa(Long id,PessoaModel novaPessoa) {
-        PessoaModel pessoaPraMudar = pessoaRepository.findById(id).orElse(null);
+        PessoaModel pessoaPraMudar = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada para alteração!."));
 
         pessoaPraMudar.setNome(novaPessoa.getNome());
         pessoaPraMudar.setEndereco(novaPessoa.getEndereco());
@@ -38,7 +38,7 @@ public class PessoaService {
     }
 
     public void deletarPessoa (Long id) {
-        PessoaModel pessoaPraDeletar = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada!."));
+        PessoaModel pessoaPraDeletar = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException("Pessoa não encontrada para deletar!."));
         pessoaRepository.delete(pessoaPraDeletar);
     }
 
