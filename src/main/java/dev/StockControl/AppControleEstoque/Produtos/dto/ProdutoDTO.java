@@ -1,6 +1,6 @@
-package dev.StockControl.AppControleEstoque.Produtos;
+package dev.StockControl.AppControleEstoque.Produtos.dto;
 
-import dev.StockControl.AppControleEstoque.Pessoas.PessoaModel;
+import dev.StockControl.AppControleEstoque.Pessoas.model.PessoaModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

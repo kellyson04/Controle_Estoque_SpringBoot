@@ -1,7 +1,7 @@
-package dev.StockControl.AppControleEstoque.Pessoas;
+package dev.StockControl.AppControleEstoque.Pessoas.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.StockControl.AppControleEstoque.Produtos.ProdutoModel;
+import dev.StockControl.AppControleEstoque.Produtos.model.ProdutoModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

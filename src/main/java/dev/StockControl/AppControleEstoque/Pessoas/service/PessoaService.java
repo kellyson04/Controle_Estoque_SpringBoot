@@ -1,11 +1,13 @@
-package dev.StockControl.AppControleEstoque.Pessoas;
+package dev.StockControl.AppControleEstoque.Pessoas.service;
 
-import dev.StockControl.AppControleEstoque.Produtos.ProdutoRepository;
+import dev.StockControl.AppControleEstoque.Pessoas.dto.PessoaDTO;
+import dev.StockControl.AppControleEstoque.Pessoas.mapper.PessoaMapper;
+import dev.StockControl.AppControleEstoque.Pessoas.model.PessoaModel;
+import dev.StockControl.AppControleEstoque.Pessoas.repository.PessoaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PessoaService {

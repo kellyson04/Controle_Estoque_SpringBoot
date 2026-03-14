@@ -1,5 +1,9 @@
-package dev.StockControl.AppControleEstoque.Produtos;
+package dev.StockControl.AppControleEstoque.Produtos.service;
 
+import dev.StockControl.AppControleEstoque.Produtos.dto.ProdutoDTO;
+import dev.StockControl.AppControleEstoque.Produtos.mapper.ProdutoMapper;
+import dev.StockControl.AppControleEstoque.Produtos.model.ProdutoModel;
+import dev.StockControl.AppControleEstoque.Produtos.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

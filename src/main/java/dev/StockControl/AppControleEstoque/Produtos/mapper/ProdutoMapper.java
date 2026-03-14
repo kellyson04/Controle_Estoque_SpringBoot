@@ -1,5 +1,7 @@
-package dev.StockControl.AppControleEstoque.Produtos;
+package dev.StockControl.AppControleEstoque.Produtos.mapper;
 
+import dev.StockControl.AppControleEstoque.Produtos.dto.ProdutoDTO;
+import dev.StockControl.AppControleEstoque.Produtos.model.ProdutoModel;
 import org.springframework.stereotype.Component;
 
 @Component

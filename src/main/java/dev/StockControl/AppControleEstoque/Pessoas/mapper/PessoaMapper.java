@@ -1,5 +1,7 @@
-package dev.StockControl.AppControleEstoque.Pessoas;
+package dev.StockControl.AppControleEstoque.Pessoas.mapper;
 
+import dev.StockControl.AppControleEstoque.Pessoas.dto.PessoaDTO;
+import dev.StockControl.AppControleEstoque.Pessoas.model.PessoaModel;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,5 +1,7 @@
-package dev.StockControl.AppControleEstoque.Produtos;
+package dev.StockControl.AppControleEstoque.Produtos.controller;
 
+import dev.StockControl.AppControleEstoque.Produtos.dto.ProdutoDTO;
+import dev.StockControl.AppControleEstoque.Produtos.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
